@@ -9,9 +9,9 @@ VALUES
 INSERT INTO role(title, salary, department_id)
 VALUES
 ("Principal", 95000, 1),
-("Department Chair", 165000, 2),
-("Team Lead", 135000, 2),
-("Head Custodian", 110000, 3),
+("Department Chair", 65000, 2),
+("Team Lead", 55000, 2),
+("Head Custodian", 40000, 3);
 
 
 INSERT INTO employee(first_name, last_name, role_id, manager_id)
