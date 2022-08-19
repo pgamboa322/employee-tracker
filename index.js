@@ -48,6 +48,10 @@ function employeeTracker() {
           case "Add an employee":
             addEmployee();
             break;
+
+            case "Update employee role":
+                updateEmployeeRole(updateRole);
+                break;  
   
           case "Quit":
             console.log("Done tracking your team?");
@@ -82,7 +86,6 @@ function viewDepts() {
   function viewEmps() {
     connection.query("SELECT * FROM employee", (err, data) => {
       if (err) throw err;
-    //   console.table(employees);
       console.table(data);
       employeeTracker();
     });
@@ -176,7 +179,7 @@ function addDepartment() {
 
 function addRole() {
     console.log("new role");
-    const selectDepartment = deptId.map(({ id, name }) => ({
+    const selectDepartment = departmentId.map(({ id, name }) => ({
       name: name,
       value: id,
     }));
@@ -240,3 +243,70 @@ function addRole() {
         );
       });
   }
+
+  // Function that updates an employee's info 
+
+function updateEmployeeRole(employeeRole, employeeId) {
+    let updateRole = connection.query(
+      "UPDATE employee SET role_id = ? WHERE id = ?",
+      [employeeRole, employeeId],
+      function (err, role) {
+        if (err) throw err;
+        updateEmployeeRole(updateRole);
+        // employeeTracker();
+      });
+    
+  }
+  
+  // View team departments
+  function viewDepts() {
+    connection.query("SELECT * FROM department", (error, data) => {
+      if (error) throw error;
+      console.table(data);
+      employeeTracker();
+    });
+  }
+  
+  // View team roles
+  function viewRoles() {
+    connection.query("SELECT * FROM role", (error, data) => {
+      if (error) throw error;
+      console.table(data);
+      employeeTracker();
+    });
+  }
+  
+  // View all team employees
+  function viewEmps() {
+    connection.query("SELECT * FROM employee", (error, data) => {
+      if (error) throw error;
+      console.table(data);
+      employeeTracker();
+    });
+  }
+  
+  const departmentId = [];
+
+  // sql query to show connected records from departments
+
+function populateTeam() {
+    connection.query("SELECT name FROM department", (error, data) => {
+      if (error) throw error;
+      for (let i = 0; i < data.length; i++) {
+        departments.push(data[i].name);
+      }
+      console.log(departments);
+    });
+    deptId.length = 0;
+    connection.query("SELECT * FROM department", (error, data) => {
+      if (error) throw error;
+      for (let i = 0; i < data.length; i++) {
+        departmentId.push(data[i]);
+      }
+      console.log(departmentId);
+    });
+  };
+  
+  populateTeam();
+  employeeTracker();
+  
