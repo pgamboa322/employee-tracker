@@ -1,8 +1,16 @@
-# employee-tracker
+# Employee Tracker
 
-You will have two terminals open one for bash and one for mysql
+A simple and easy to use employee manager app that helps track, add, and update all your employees through a terminal interface with the help of Inquirer.
 
-In a seperate terminal (mysql) you will type in 
+## Installation
+
+Download or clone repo, npm install, node js.
+
+## Usage
+
+You will have two terminals (bash & mysql)
+
+In mysql terminal
 mysql -u root -p
 
 You will be prompted with a password -- enter in root (all lowercase)
@@ -25,3 +33,9 @@ Then be prompted through the CL application.
 
 ** When you get to add  employee just start typing  and it  will  show the right prompt for "first name". It is a weird glitch.  
 
+## Demo
+[Video]()
+
+## Links
+
+Github Link: https://github.com/pgamboa322/employee-tracker
