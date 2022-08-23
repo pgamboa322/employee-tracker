@@ -34,7 +34,7 @@ Then be prompted through the CL application.
 ** When you get to add  employee just start typing  and it  will  show the right prompt for "first name". It is a weird glitch.  
 
 ## Demo
-[Video]()
+[Video](https://drive.google.com/file/d/1o1zYvl_tvREAMfwVB8OVo0QHfZ38wq3Q/view)
 
 ## Links
 
